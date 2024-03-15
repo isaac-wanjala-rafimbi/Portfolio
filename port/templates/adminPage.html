@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>My Portfolio</title>
+    {% endblock title %}
+    {%block link%}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/f674a7878b.js" crossorigin="anonymous"></script>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'mystyle.css'%}">
+    {%endblock link%}
+</head>
+<body>
+   
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>Brand</h1>
+        </div>
+        <ul>
+            <li><a href="{%url 'about'%}"><img src="dashboard (2).png" alt="">&nbsp; <span>About</span></a></li>
+            <li><a href="{%url 'skill'%}"><img src="dashboard (2).png" alt="">&nbsp; <span>Skills</span></a></li>
+            <li><a href="{%url 'projects'%}"><img src="reading-book (1).png" alt="">&nbsp;<span>Projects</span></a></li>
+            <li><a href="{%url 'testimonial'%}"><img src="teacher2.png" alt="">&nbsp;<span>Testimonial</span></a></li>
+            
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Search..">
+                    <button type="submit"><img src="search.png" alt=""></button>
+                </div>
+                <div class="user">
+                    <a href="#" class="btn">Add New</a>
+                    <img src="notifications.png" alt="">
+                    <div class="img-case">
+                        <img src="user.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+        {%block content%}
+        <section id="about_section">
+            <h2 >About Me</h2>
+            <div  id="about_me"  class="container-fluid">
+                <div class="container">
+                 <div   id="attribute" class="row">
+                     <div id="bio" class="col-sm-6">
+                        <h1>Hello, I'm <span>Isaac Rafimbi</span></h1>
+                        <p>{{ about.about_text }} </p> <br>
+                       
+                          
+                        <button class="download">Download Resume</button>
+        
+                     </div>
+                     <div id="photo" class="col-sm-6">
+                         <img src="{{ about.imageURL }}" id="mboto" alt="myphoto" width="350" height="350">
+                     </div>
+                    
+                   </div>
+                </div>
+                
+               </div>
+            </section>
+        <section id="about_section">
+            <h2 >About Me</h2>
+            <div  id="about_me"  class="container-fluid">
+                <div class="container">
+                 <div   id="attribute" class="row">
+                     <div id="bio" class="col-sm-6">
+                        <p>Number: {{ contact.number }}</p>
+                        <p>Email: {{ contact.email }}</p>
+                        <p>Github: {{ contact.github }}</p>
+                        <p>Instagram: {{ contact.instagram }}</p>
+                        <p>LinkedIn: {{ contact.linkedln }}</p>
+                        <p>Facebook: {{ contact.facebook }}</p>
+                     </div>
+                    
+                   </div>
+                </div>
+                
+               </div>   
+            </section>
+        
+        
+
+        {%endblock content%}
+        
+   
+</body>
+</html>
